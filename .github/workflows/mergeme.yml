@@ -1,18 +1,16 @@
 on:
   issue_comment:
     types: [created]
-name: Automatic Rebase
+name: Merge Me
 jobs:
-  rebase:
-    name: Rebase
-    if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/rebase')
+  mergeme:
+    if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/mergeme')
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the latest code
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: Automatic Rebase
-      uses: mgreenw/rebase@main
+    - uses: mgreenw/mergeme@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
