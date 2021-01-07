@@ -14,6 +14,6 @@ jobs:
       with:
         fetch-depth: 0
     - name: Autosquash
-      uses: mgreenw/autosquash@max/executable-autosqaush
+      uses: mgreenw/autosquash@max/executable-autosquash
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
